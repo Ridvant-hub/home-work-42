@@ -6,7 +6,7 @@ function DataFetcher() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchDog = async () => {
+  const fetchCat = async () => {
     try {
       setIsLoading(true);
       setError(null);
@@ -14,10 +14,10 @@ function DataFetcher() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const response = await axios.get(
-        "https://dog.ceo/api/breeds/image/random"
+        "https://api.thecatapi.com/v1/images/search"
       );
 
-      setData(response.data);
+      setData(response.data[0]);
     } catch (err) {
       setError(err.message || "Сталася помилка запиту");
     } finally {
@@ -26,15 +26,15 @@ function DataFetcher() {
   };
 
   useEffect(() => {
-    fetchDog();
+    fetchCat();
   }, []);
 
   return (
     <section>
-      <h2>Dogs</h2>
+      <h2>Котики 🐱</h2>
 
-      <button type="button" onClick={fetchDog}>
-        Показати іншого песика
+      <button type="button" onClick={fetchCat}>
+        Показати іншого котика
       </button>
 
       {isLoading && (
@@ -81,8 +81,8 @@ function DataFetcher() {
       {!isLoading && !error && data && (
         <article>
           <img
-            src={data.message}
-            alt="Dog"
+            src={data.url}
+            alt="Котик"
             style={{
               width: "100%",
               maxWidth: "400px",
