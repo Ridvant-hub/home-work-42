@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="viteGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#41D1FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BD34FE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="viteGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFEA83;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFDD35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA800;stop-opacity:1" />
+    </linearGradient>
+    <filter id="viteGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="128" cy="128" r="120" fill="url(#viteGradient1)" opacity="0.1"/>
+  
+  <!-- Main V shape -->
+  <path d="M 128 20 L 220 200 L 180 200 L 128 100 L 76 200 L 36 200 Z" 
+        fill="url(#viteGradient1)" 
+        filter="url(#viteGlow)"
+        transform="translate(0, 28)"/>
+  
+  <!-- Accent shape -->
+  <path d="M 128 60 L 190 200 L 160 200 L 128 140 L 96 200 L 66 200 Z" 
+        fill="url(#viteGradient2)" 
+        opacity="0.8"
+        transform="translate(0, 28)"/>
+  
+  <!-- Sparkle effects -->
+  <circle cx="128" cy="60" r="3" fill="#FFFFFF" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="180" cy="120" r="2" fill="#FFFFFF" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="76" cy="120" r="2" fill="#FFFFFF" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
